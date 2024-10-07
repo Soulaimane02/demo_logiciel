@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox alignment="TOP_LEFT" spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="appli.todolistjx.controllers.AddListeController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Titre de la liste" />
+    <TextField fx:id="titreField" promptText="Entrez le titre" />
+
+    <Label text="Tâche" />
+    <TextField fx:id="tacheField" promptText="Entrez la tâche" />
+
+    <Label text="Description" />
+    <TextArea fx:id="descriptionField" promptText="Entrez une description" prefRowCount="4" />
+
+    <Label text="Avancement" />
+    <ComboBox fx:id="avanceeCombo">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Pas Fini"/>
+                <String fx:value="Fini"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button text="Enregistrer" onAction="#enregistrerListe" />
+    <Button text="Annuler" onAction="#annuler" />
+</VBox>

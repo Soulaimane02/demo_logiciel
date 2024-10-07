@@ -1,11 +1,16 @@
 package appli.todolistjx.controllers;
 
+import appli.todolistjx.SceneController;
 import appli.todolistjx.model.User;
 import appli.todolistjx.utils.Database;
+import javafx.event.ActionEvent;
+import org.mindrot.jbcrypt.BCrypt;
 
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.*;
 import java.util.Objects;
 
 public class UserController {
@@ -14,33 +19,50 @@ public class UserController {
     public static User login(String email, String password) throws SQLException {
         Connection conn = Database.connectDatabase();
         PreparedStatement req = conn.prepareStatement(
-                "SELECT * FROM user WHERE mail = ? AND password = ?"
+                "SELECT * FROM user WHERE mail = ?"
         );
         req.setString(1, email);
-        req.setString(2, password);
         ResultSet sqlUser = req.executeQuery();
-        while(sqlUser.next()){
-            if(Objects.equals(email, sqlUser.getString("mail")) && Objects.equals(password, sqlUser.getString("password"))){
-                System.out.println("bon");
+        if (sqlUser.next()) {
+            String hashedPassword = sqlUser.getString("password");
+
+            if (BCrypt.checkpw(password, hashedPassword))
+            {
+                System.out.println("Connexion parfait");
                 User user = new User(sqlUser.getInt("id"), sqlUser.getString("mail"), sqlUser.getString("password"));
                 return user;
-            }
-            else{
-                System.out.println("Mdp ou mail incorrect");
+            } else
+            {
+                System.out.println("Mdp incorrect");
                 return null;
             }
+        } else
+        {
+            return null;
         }
-        return null;
     }
-    public static void register(String mail, String mdp) throws SQLException {
+
+    public static int register(String mail, String mdp, String name, String first_name, String confirm_password) throws SQLException, IOException
+    {
+
+        if (!Objects.equals(confirm_password, mdp))
+        {
+            System.out.println("Les mots de passe ne correspondent pas !");
+            return 0;
+        }
         Connection conn = Database.connectDatabase();
         PreparedStatement req_insert = conn.prepareStatement(
-                "INSERT INTO `user`( `mail`, `password`) VALUES (?,?)"
+                "INSERT INTO `user`(mail, password, name, first_name) VALUES (?,?,?,?)"
         );
-        req_insert.setString(1,mail);
-        req_insert.setString(2,mdp);
+        String hashedPassword = BCrypt.hashpw(mdp, BCrypt.gensalt());
+
+        req_insert.setString(1, mail);
+        req_insert.setString(2, hashedPassword);
+        req_insert.setString(3, name);
+        req_insert.setString(4, first_name);
+
         req_insert.executeUpdate();
-
-
+        System.out.println("Inscription parfaite");
+        return 1;
     }
 }

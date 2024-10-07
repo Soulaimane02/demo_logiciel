@@ -1,0 +1,22 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.todolistjx.controllers.EditListeController">
+    <TextField fx:id="titreField" promptText="Titre"/>
+    <TextField fx:id="tacheField" promptText="Tâche"/>
+    <TextArea fx:id="descriptionField" promptText="Description"/>
+    <ComboBox fx:id="avanceeCombo">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Pas Fini"/>
+                <String fx:value="Fini"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <Button text="Enregistrer" onAction="#enregistrerListe"/>
+    <Button text="Annuler" onAction="#annuler"/>
+</VBox>

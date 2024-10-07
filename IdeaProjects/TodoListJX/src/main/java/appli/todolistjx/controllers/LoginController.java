@@ -15,10 +15,13 @@ public class LoginController {
     @FXML
     private TextField mdp_input;
 
+
+
     @FXML
     public void login(ActionEvent event) throws SQLException, IOException{
         User user = UserController.login(mail_input.getText(), mdp_input.getText());
-        if(user != null){
+        if(user != null)
+        {
             UserController.userConnected = user;
             SceneController scene = new SceneController();
             scene.switchView("home-view.fxml", event);
