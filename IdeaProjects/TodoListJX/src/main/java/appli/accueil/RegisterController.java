@@ -1,12 +1,12 @@
-package appli.todolistjx.controllers;
+package appli.accueil;
 
-import appli.todolistjx.SceneController;
-import appli.todolistjx.model.User;
+import appli.SceneController;
+import appli.model.repository.RepositoryUser;
+import appli.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -27,10 +27,10 @@ public class RegisterController {
     private PasswordField mdp_confirm_insert;
     @FXML
     public void register(ActionEvent event) throws SQLException, IOException {
-        int succes_register = UserController.register(mail_insert.getText(),mdp_insert.getText(),name_insert.getText(), firstname_insert.getText(),
+        int succes_register = RepositoryUser.register(mail_insert.getText(),mdp_insert.getText(),name_insert.getText(), firstname_insert.getText(),
                 mdp_confirm_insert.getText());
-        User user = UserController.login(mail_insert.getText(), mdp_insert.getText());
-        UserController.userConnected = user;
+        User user = RepositoryUser.login(mail_insert.getText(), mdp_insert.getText());
+        RepositoryUser.userConnected = user;
         if (succes_register == 0)
         {
             SceneController scene = new SceneController();

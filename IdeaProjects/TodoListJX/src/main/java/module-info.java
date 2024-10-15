@@ -11,10 +11,14 @@ module appli.todolistjx {
     requires java.sql;
     requires jbcrypt;
 
-    opens appli.todolistjx to javafx.fxml;
-    exports appli.todolistjx;
-    exports appli.todolistjx.controllers;
-    opens appli.todolistjx.controllers to javafx.fxml;
+    opens appli to javafx.fxml;
+    exports appli;
+    //exports appli.controllers;
+    //opens appli.controllers to javafx.fxml;
 
-    opens appli.todolistjx.model to javafx.base; // Ajoute cette ligne
+    opens appli.model to javafx.base;
+    exports appli.accueil;
+    opens appli.accueil to javafx.fxml;
+    exports appli.model.repository;
+    opens appli.model.repository to javafx.fxml; // Ajoute cette ligne
 }

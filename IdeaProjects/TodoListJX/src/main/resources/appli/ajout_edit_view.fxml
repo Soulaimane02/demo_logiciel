@@ -9,7 +9,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<VBox alignment="TOP_LEFT" spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="appli.todolistjx.controllers.AddListeController">
+<VBox alignment="TOP_LEFT" spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="appli.model.repository.AddListeController">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>

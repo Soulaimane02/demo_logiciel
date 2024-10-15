@@ -1,4 +1,4 @@
-package appli.todolistjx.utils;
+package appli.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.todolistjx.controllers.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.HomeController">
    <Label fx:id="label" layoutX="12.0" layoutY="72.0">Vous êtes connecté</Label>
    <Button onAction="#AddEditChangeScene" fx:id="ajouter_list" layoutX="14.0" layoutY="230.0" mnemonicParsing="false" text="Ajouter une liste" />
    <Button onAction="#AddEditChangeScene" fx:id="les_types" layoutX="31.0" layoutY="264.0" mnemonicParsing="false" text="Les types" />

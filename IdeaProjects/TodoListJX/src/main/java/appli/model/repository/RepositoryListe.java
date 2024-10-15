@@ -1,7 +1,7 @@
-package appli.todolistjx.repository;
+package appli.model.repository;
 
-import appli.todolistjx.model.Liste;
-import appli.todolistjx.utils.Database;
+import appli.model.Liste;
+import appli.database.Database;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class repositoryListe
+public class RepositoryListe
 {
     public static List<Liste> liste_user(int id_users) throws SQLException, IOException
     {

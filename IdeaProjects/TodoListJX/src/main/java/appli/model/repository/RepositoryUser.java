@@ -1,9 +1,7 @@
-package appli.todolistjx.controllers;
+package appli.model.repository;
 
-import appli.todolistjx.SceneController;
-import appli.todolistjx.model.User;
-import appli.todolistjx.utils.Database;
-import javafx.event.ActionEvent;
+import appli.model.User;
+import appli.database.Database;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
@@ -13,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
-public class UserController {
+public class RepositoryUser {
     public static User userConnected;
 
     public static User login(String email, String password) throws SQLException {

@@ -1,4 +1,4 @@
-package appli.todolistjx.model;
+package appli.model;
 
 public class Liste {
 

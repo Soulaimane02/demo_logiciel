@@ -5,7 +5,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.todolistjx.controllers.EditListeController">
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.model.repository.EditListeController">
     <TextField fx:id="titreField" promptText="Titre"/>
     <TextField fx:id="tacheField" promptText="Tâche"/>
     <TextArea fx:id="descriptionField" promptText="Description"/>

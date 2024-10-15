@@ -1,9 +1,11 @@
-package appli.todolistjx.controllers;
+package appli.accueil;
 
-import appli.todolistjx.SceneController;
-import appli.todolistjx.model.Liste;
-import appli.todolistjx.model.User;
-import appli.todolistjx.repository.repositoryListe;
+import appli.SceneController;
+import appli.model.repository.EditListeController;
+import appli.model.repository.RepositoryUser;
+import appli.model.Liste;
+import appli.model.User;
+import appli.model.repository.RepositoryListe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,11 +36,11 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        label.setText("Bienvenue " + UserController.userConnected.getMail() + " !");
+        label.setText("Bienvenue " + RepositoryUser.userConnected.getMail() + " !");
 
         try
         {
-            List<Liste> listes = repositoryListe.liste_user(UserController.userConnected.getId());
+            List<Liste> listes = RepositoryListe.liste_user(RepositoryUser.userConnected.getId());
             tableauListe.getItems().addAll(listes);
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
@@ -72,7 +74,7 @@ public class HomeController implements Initializable {
     }
 
     private void ouvrirPageModification(Liste liste) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/appli/todolistjx/edit-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/appli/edit-view.fxml"));
         Parent root = fxmlLoader.load();
 
         // Récupérer le contrôleur et passer la liste sélectionnée (GPT)

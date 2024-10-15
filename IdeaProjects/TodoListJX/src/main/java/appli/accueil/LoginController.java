@@ -1,7 +1,8 @@
-package appli.todolistjx.controllers;
+package appli.accueil;
 
-import appli.todolistjx.SceneController;
-import appli.todolistjx.model.User;
+import appli.SceneController;
+import appli.model.repository.RepositoryUser;
+import appli.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -19,10 +20,10 @@ public class LoginController {
 
     @FXML
     public void login(ActionEvent event) throws SQLException, IOException{
-        User user = UserController.login(mail_input.getText(), mdp_input.getText());
+        User user = RepositoryUser.login(mail_input.getText(), mdp_input.getText());
         if(user != null)
         {
-            UserController.userConnected = user;
+            RepositoryUser.userConnected = user;
             SceneController scene = new SceneController();
             scene.switchView("home-view.fxml", event);
         }

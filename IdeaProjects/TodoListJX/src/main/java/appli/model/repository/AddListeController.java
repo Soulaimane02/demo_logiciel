@@ -1,8 +1,7 @@
-package appli.todolistjx.controllers;
+package appli.model.repository;
 
-import appli.todolistjx.SceneController;
-import appli.todolistjx.model.Liste;
-import appli.todolistjx.repository.repositoryListe;
+import appli.SceneController;
+import appli.model.Liste;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,10 +43,10 @@ public class AddListeController
         try
         {
             Liste nouvelleListe = new Liste(0, titre, tache, description, avancee);
-            repositoryListe.addListe(nouvelleListe, UserController.userConnected.getId());
+            RepositoryListe.addListe(nouvelleListe, RepositoryUser.userConnected.getId());
 
             // CHATGPT pour la redirection
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/appli/todolistjx/home-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/appli/home-view.fxml"));
             Parent root = fxmlLoader.load();
             Stage stage = (Stage) titreField.getScene().getWindow();
             stage.setScene(new Scene(root));

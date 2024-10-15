@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="484.0" prefWidth="268.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.todolistjx.controllers.RegisterController">
+<AnchorPane prefHeight="484.0" prefWidth="268.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.RegisterController">
    <children>
       <Label layoutX="105.0" layoutY="39.0" text="Inscription" textFill="#ee3d3d">
          <font>
