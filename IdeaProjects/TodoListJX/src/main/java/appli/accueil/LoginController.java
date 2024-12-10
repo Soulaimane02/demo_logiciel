@@ -5,6 +5,7 @@ import appli.model.repository.RepositoryUser;
 import appli.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -34,5 +35,4 @@ public class LoginController {
         SceneController scence = new SceneController();
         scence.switchView("register-view.fxml", event);
     }
-
 }

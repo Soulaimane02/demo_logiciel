@@ -49,10 +49,14 @@ public class Liste {
     }
 
     public String getCompleted() {
-        return completed; // Modifier le type de retour à String
+        return completed;
     }
 
     public void setCompleted(String completed) {
         this.completed = completed;
+    }
+
+    public boolean isCompleted() {
+        return "Fini".equals(completed);
     }
 }

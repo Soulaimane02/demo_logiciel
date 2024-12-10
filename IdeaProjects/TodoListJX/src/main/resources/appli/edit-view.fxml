@@ -18,5 +18,6 @@
         </items>
     </ComboBox>
     <Button text="Enregistrer" onAction="#enregistrerListe"/>
+    <Button text="Supprimer" onAction="#supp"/>
     <Button text="Annuler" onAction="#annuler"/>
 </VBox>

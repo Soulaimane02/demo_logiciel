@@ -22,6 +22,5 @@
    <TextField fx:id="mdp_input" />
    <Button mnemonicParsing="false" onAction="#login" text="Connexion" />
     <Button onAction="#RegisterButtonAction" text="Inscription" />
-   <Button mnemonicParsing="false" text="Mot de passe oublié" />
     <Label fx:id="welcomeText" />
 </VBox>

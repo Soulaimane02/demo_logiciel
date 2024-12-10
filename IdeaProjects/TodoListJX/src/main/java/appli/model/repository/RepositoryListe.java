@@ -79,4 +79,15 @@ public class RepositoryListe
         reqUpdate.executeUpdate();
         System.out.println("Liste modifiée !");
     }
+
+    public static void supp(Liste listeEdit) throws SQLException, IOException
+    {
+        Connection conn = Database.connectDatabase();
+
+        PreparedStatement reqDelete = conn.prepareStatement("DELETE FROM `liste` WHERE id_liste = ?");
+        reqDelete.setInt(1, listeEdit.getId_liste());
+        reqDelete.executeUpdate();
+        System.out.println("Liste supprimée !");
+    }
+
 }

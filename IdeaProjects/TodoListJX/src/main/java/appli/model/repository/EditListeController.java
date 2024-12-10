@@ -79,6 +79,35 @@ public class EditListeController
     }
 
     @FXML
+    public void supp()
+    {
+        // Récupérer les données des champs
+        String titre = titreField.getText();
+        String tache = tacheField.getText();
+        String description = descriptionField.getText();
+        String avancee = avanceeCombo.getValue();
+
+        try {
+            if (listeActuelle == null) {
+                Liste nouvelleListe = new Liste(0, titre, tache, description, avancee);
+                RepositoryListe.addListe(nouvelleListe, RepositoryUser.userConnected.getId());
+            } else {
+                RepositoryListe.supp(listeActuelle);
+                System.out.println("Liste supprimée avec succès!");
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/appli/home-view.fxml"));
+                Parent root = fxmlLoader.load();
+                Stage stage = (Stage) titreField.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     public void annuler(ActionEvent event) throws IOException
     {
         SceneController scene = new SceneController();

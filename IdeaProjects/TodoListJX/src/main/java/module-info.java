@@ -10,6 +10,7 @@ module appli.todolistjx {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires jbcrypt;
+    requires org.json;
 
     opens appli to javafx.fxml;
     exports appli;
